@@ -1,4 +1,4 @@
-package org.willd.delivery.db.storeuser;
+package org.willd.delivery.db.adminuser;
 
 
 import lombok.AllArgsConstructor;
@@ -9,8 +9,8 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.relational.core.mapping.Table;
-import org.willd.delivery.db.storeuser.enums.StoreUserRole;
-import org.willd.delivery.db.storeuser.enums.StoreUserStatus;
+import org.willd.delivery.db.adminuser.enums.AdminUserRole;
+import org.willd.delivery.db.adminuser.enums.AdminUserStatus;
 import org.willd.delivery.db.BaseEntity;
 
 import java.time.LocalDateTime;
@@ -21,16 +21,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @SuperBuilder
-public class StoreUserEntity extends BaseEntity {
+public class AdminUserEntity extends BaseEntity {
     private Long storeId;
 
     private String email;
 
     private String password;
 
-    private StoreUserStatus status;
+    private AdminUserStatus status;
 
-    private StoreUserRole role;
+    private AdminUserRole role;
 
     @CreatedDate
     private LocalDateTime registeredAt;

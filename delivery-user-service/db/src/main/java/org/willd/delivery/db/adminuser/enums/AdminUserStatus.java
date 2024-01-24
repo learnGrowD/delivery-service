@@ -1,10 +1,9 @@
-package org.willd.delivery.db.storeuser.enums;
+package org.willd.delivery.db.adminuser.enums;
 
 import lombok.AllArgsConstructor;
-import org.springframework.boot.context.metrics.buffering.StartupTimeline;
 
 @AllArgsConstructor
-public enum StoreUserStatus {
+public enum AdminUserStatus {
     REGISTERED("등록"),
 
     UNREGISTERED("해지");
