@@ -24,7 +24,7 @@ public class UserEntity extends BaseEntity {
 
     private String password;
 
-    private UserStatus userStatus;
+    private UserStatus status;
 
     private String address;
 

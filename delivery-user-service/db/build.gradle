@@ -23,17 +23,13 @@ configurations {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter'
-
+    implementation project(':common')
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
     implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
     implementation "com.github.jasync-sql:jasync-r2dbc-mysql:2.2.4"
+
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 }
 

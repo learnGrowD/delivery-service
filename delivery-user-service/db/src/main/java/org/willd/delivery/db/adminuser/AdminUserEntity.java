@@ -1,6 +1,7 @@
 package org.willd.delivery.db.adminuser;
 
 
+import com.fasterxml.jackson.databind.annotation.EnumNaming;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -28,9 +29,11 @@ public class AdminUserEntity extends BaseEntity {
 
     private String password;
 
-    private AdminUserStatus status;
+    // [AdminUserStatus]
+    private String status;
 
-    private AdminUserRole role;
+    // [AdminUserRole]
+    private String role;
 
     @CreatedDate
     private LocalDateTime registeredAt;
