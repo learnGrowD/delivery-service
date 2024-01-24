@@ -10,7 +10,7 @@ import org.willd.delivery.db.user.enums.UserStatus;
 
 import java.time.LocalDateTime;
 
-@Table("user")
+@Table("delivery_user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

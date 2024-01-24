@@ -16,7 +16,7 @@ import org.willd.delivery.db.BaseEntity;
 
 import java.time.LocalDateTime;
 
-@Table("store_user")
+@Table("delivery_admin_user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
