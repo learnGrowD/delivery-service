@@ -1,4 +1,0 @@
-rootProject.name = 'delivery-user-service'
-include 'db'
-include 'api'
-
