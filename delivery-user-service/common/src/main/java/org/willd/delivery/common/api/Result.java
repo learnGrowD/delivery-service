@@ -1,7 +1,7 @@
 package org.willd.delivery.common.api;
 
 import lombok.*;
-import org.willd.delivery.common.error.CommonErrorCode;
+import org.willd.delivery.common.error.ErrorCode;
 import org.willd.delivery.common.error.ErrorCodeIfs;
 
 @Getter
@@ -12,8 +12,8 @@ public class Result {
 
     public static Result OK() {
         return Result.builder()
-                .errorCode(CommonErrorCode.OK.getErrorCode())
-                .description(CommonErrorCode.OK.getDescription())
+                .errorCode(ErrorCode.OK.getErrorCode())
+                .description(ErrorCode.OK.getDescription())
                 .build();
     }
 
@@ -28,6 +28,13 @@ public class Result {
         return Result.builder()
                 .errorCode(errorCodeIfs.getErrorCode())
                 .description(errorDescription)
+                .build();
+    }
+
+    public static Result ERROR(ErrorCodeIfs errorCodeIfs, Throwable tx) {
+        return Result.builder()
+                .errorCode(errorCodeIfs.getErrorCode())
+                .description(tx.getLocalizedMessage())
                 .build();
     }
 }

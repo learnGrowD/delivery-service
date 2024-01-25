@@ -18,6 +18,13 @@ public class Api<T> {
         return api;
     }
 
+    public static <T> Api<T> ERROR(ErrorCodeIfs errorCodeIfs, T body) {
+        Api<T> api = new Api<>();
+        api.result = Result.ERROR(errorCodeIfs);
+        api.body = body;
+        return api;
+    }
+
     public static Api<Object> ERROR(ErrorCodeIfs errorCodeIfs) {
         Api<Object> api = new Api<>();
         api.result = Result.ERROR(errorCodeIfs);
@@ -28,6 +35,13 @@ public class Api<T> {
     public static Api<Object> ERROR(ErrorCodeIfs errorCodeIfs, String errorDescription) {
         Api<Object> api = new Api<>();
         api.result = Result.ERROR(errorCodeIfs, errorDescription);
+        api.body = new Object();
+        return api;
+    }
+
+    public static Api<Object> ERROR(ErrorCodeIfs errorCodeIfs, Throwable tx) {
+        Api<Object> api = new Api<>();
+        api.result = Result.ERROR(errorCodeIfs, tx);
         api.body = new Object();
         return api;
     }
