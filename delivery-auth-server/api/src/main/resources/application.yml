@@ -1,6 +1,15 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   application:
     name: delivery-auth-server
+
+token:
+  secret:
+    key: SpringBootJWTHelperTokenSecretKeyValue123!@#
+  access-token:
+    plus-hour: 1
+  refresh-token:
+    plus-hour: 12
+

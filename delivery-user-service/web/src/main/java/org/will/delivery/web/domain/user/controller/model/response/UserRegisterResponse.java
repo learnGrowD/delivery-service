@@ -8,8 +8,6 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 public class UserRegisterResponse {
-    private Long id;
-
     private String accessToken;
     private LocalDateTime accessTokenExpiredAt;
 

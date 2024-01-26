@@ -5,6 +5,8 @@ import org.willd.delivery.common.error.ErrorCode;
 import org.willd.delivery.common.error.ErrorCodeIfs;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Result {
     private Integer errorCode;

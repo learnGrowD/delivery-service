@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.willd.delivery.common.api.Api;
 import org.willd.delivery.common.error.ErrorCode;
+import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestControllerAdvice
@@ -14,10 +15,10 @@ import org.willd.delivery.common.error.ErrorCode;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
-    public ResponseEntity<Api<Object>> exception(Exception exception) {
+    public Mono<ResponseEntity<Api<Object>>> exception(Exception exception) {
         log.info("", exception);
-        return ResponseEntity
+        return Mono.just(ResponseEntity
                 .status(ErrorCode.INTERNAL_SERVER_ERROR.getErrorCode())
-                .body(Api.ERROR(ErrorCode.INTERNAL_SERVER_ERROR, exception));
+                .body(Api.ERROR(ErrorCode.INTERNAL_SERVER_ERROR, exception)));
     }
 }

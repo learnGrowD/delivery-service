@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.willd.delivery.common.error.ErrorCodeIfs;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Api<T> {
     private Result result;
     private T body;

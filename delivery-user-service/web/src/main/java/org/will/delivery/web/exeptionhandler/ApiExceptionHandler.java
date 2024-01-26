@@ -5,9 +5,12 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.server.ServerWebExchange;
 import org.willd.delivery.common.api.Api;
+import org.willd.delivery.common.error.ErrorCode;
 import org.willd.delivery.common.error.ErrorCodeIfs;
 import org.willd.delivery.common.exception.ApiException;
+import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestControllerAdvice
@@ -15,12 +18,12 @@ import org.willd.delivery.common.exception.ApiException;
 public class ApiExceptionHandler {
 
     @ExceptionHandler(value = ApiException.class)
-    public ResponseEntity<Api<Object>> apiException(ApiException apiException) {
+    public Mono<ResponseEntity<Api<Object>>> apiException(ApiException apiException) {
         log.info("", apiException);
         ErrorCodeIfs errorCodeIfs = apiException.getErrorCodeIfs();
         String errorDescription = apiException.getErrorDescription();
-        return ResponseEntity
+        return Mono.just(ResponseEntity
                 .status(errorCodeIfs.getHttpStatusCode())
-                .body(Api.ERROR(errorCodeIfs, errorDescription));
+                .body(Api.ERROR(errorCodeIfs, errorDescription)));
     }
 }

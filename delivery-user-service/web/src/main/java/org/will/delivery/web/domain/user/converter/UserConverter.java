@@ -1,8 +1,10 @@
 package org.will.delivery.web.domain.user.converter;
 
+import org.will.delivery.web.client.auth.model.ExternalAuthIssuedTokenResponse;
 import org.will.delivery.web.domain.user.controller.model.request.UserRegisterRequest;
 import org.will.delivery.web.domain.user.controller.model.response.UserDetailResponse;
 import org.will.delivery.web.domain.user.controller.model.response.UserListItemResponse;
+import org.will.delivery.web.domain.user.controller.model.response.UserLoginResponse;
 import org.will.delivery.web.domain.user.controller.model.response.UserRegisterResponse;
 import org.willd.delivery.common.annotation.Converter;
 import org.willd.delivery.db.user.UserEntity;
@@ -23,9 +25,21 @@ public class UserConverter {
                 .build();
     }
 
-    public UserRegisterResponse toRegisterResponse(UserEntity userEntity) {
+    public UserRegisterResponse toRegisterResponse(ExternalAuthIssuedTokenResponse issuedTokenResult) {
         return UserRegisterResponse.builder()
-                .id(userEntity.getId())
+                .accessToken(issuedTokenResult.getAccessToken())
+                .accessTokenExpiredAt(issuedTokenResult.getAccessTokenExpiredAt())
+                .refreshToken(issuedTokenResult.getRefreshToken())
+                .refreshTokenExpiredAt(issuedTokenResult.getRefreshTokenExpiredAt())
+                .build();
+    }
+
+    public UserLoginResponse toLoginResponse(ExternalAuthIssuedTokenResponse issuedTokenResult) {
+        return UserLoginResponse.builder()
+                .accessToken(issuedTokenResult.getAccessToken())
+                .accessTokenExpiredAt(issuedTokenResult.getAccessTokenExpiredAt())
+                .refreshToken(issuedTokenResult.getRefreshToken())
+                .refreshTokenExpiredAt(issuedTokenResult.getRefreshTokenExpiredAt())
                 .build();
     }
 

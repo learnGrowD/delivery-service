@@ -5,6 +5,7 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.relational.core.mapping.Table;
+import org.willd.delivery.common.annotation.Converter;
 import org.willd.delivery.db.BaseEntity;
 import org.willd.delivery.db.user.enums.UserStatus;
 

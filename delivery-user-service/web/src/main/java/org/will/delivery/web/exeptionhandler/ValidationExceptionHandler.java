@@ -9,6 +9,7 @@ import org.springframework.web.bind.support.WebExchangeBindException;
 import org.will.delivery.web.exeptionhandler.model.ValidationExceptionResponse;
 import org.willd.delivery.common.api.Api;
 import org.willd.delivery.common.error.ErrorCode;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ import java.util.List;
 public class ValidationExceptionHandler {
 
     @ExceptionHandler(value = WebExchangeBindException.class)
-    public ResponseEntity<Api<Object>> webExchangeBindException(
+    public Mono<ResponseEntity<Api<Object>>> webExchangeBindException(
             WebExchangeBindException webExchangeBindException
     ) {
         log.error("", webExchangeBindException);
@@ -33,8 +34,8 @@ public class ValidationExceptionHandler {
                 })
                 .toList();
 
-        return ResponseEntity
+        return Mono.just(ResponseEntity
                 .status(ErrorCode.VALIDATION.getHttpStatusCode())
-                .body(Api.ERROR(ErrorCode.VALIDATION, codes));
+                .body(Api.ERROR(ErrorCode.VALIDATION, codes)));
     }
 }
