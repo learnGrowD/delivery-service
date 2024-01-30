@@ -1,6 +1,5 @@
 rootProject.name = 'delivery-user-service'
 include 'db'
-include 'web'
+include 'api'
 include 'common'
-include 'admin'
 

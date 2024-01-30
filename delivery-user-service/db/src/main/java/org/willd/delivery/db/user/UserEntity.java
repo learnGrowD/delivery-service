@@ -12,7 +12,8 @@ import org.willd.delivery.db.user.enums.UserStatus;
 import java.time.LocalDateTime;
 
 @Table("delivery_user")
-@Data
+@Getter
+@Setter(value = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)

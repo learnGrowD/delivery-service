@@ -1,13 +1,12 @@
 package org.willd.delivery.db;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 
-@Data
+@Getter
+@Setter(value = AccessLevel.PRIVATE)
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
